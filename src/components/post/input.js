@@ -25,7 +25,7 @@ const Input = () => {
   const post = async (e) => {
     getCurrentTime()
     if (e.key === 'Enter') {
-      console.log(e)
+      console.log(value)
       await axios.post('http://localhost:3000/posts', {
         title: value,
         author: 'voyager',

@@ -5,10 +5,12 @@ import NumberFormat from 'react-number-format';
 import Input from './input';
 
 const Details = (props) => {
-	
+
 	const [textLength, setTextLength] = useState(25)
 	const [statusBtn, setStatusBtn] = useState(true)
 	const [comments, setComments] = useState([])
+	const [username, setUsername] = useState('')
+
 	const more = () => {
 		setTextLength(1000)
 		setStatusBtn(false)
@@ -19,11 +21,18 @@ const Details = (props) => {
 			let array = []
 			await axios.get('http://localhost:3000/posts')
 				.then(res => array.push(res))
-			console.log(array[0].data, '============')
+			console.log(array[0].data.length, '============')
 			setComments(array[0].data)
 		}
 		fetchData()
 	}, [setComments])
+
+	const deleteComment = (e) => {
+		let index = e.target.id
+		axios.delete(`http://localhost:3000/posts/${index}`).then(() => {
+			console.log('Delete successful')
+		})
+	}
 
 	return (
 		<div>
@@ -64,12 +73,14 @@ const Details = (props) => {
 				</div>
 				<p className='text-[14px] text-[#8E8E8E] mt-2'>View all {props.commentsCount} comments</p>
 				{comments.map((item) => (
-					<div key={item.id} className='flex items-center gap-2'>
-						<Title>{item.author}</Title>
-						<p className='font-[400] text-sm text-[#262626]'>{item.title}</p>
+					<div key={item.id} className='flex justify-between gap-2'>
+						<div className='flex items-center gap-2'>
+							<Title>{item.author}</Title>
+							<p id={item.id} onClick={deleteComment} className='font-[400] text-sm text-[#262626]'>{item.title}</p>
+						</div>
+						<p className='text-[10px] text-[#8E8E8E] mt-2 font-extralight'>{item.time} HOURS AGO</p>
 					</div>
 				))}
-				<p className='text-[10px] text-[#8E8E8E] mt-2 font-extralight'>{props.data} HOURS AGO</p>
 			</PostContainer>
 			<Input />
 		</div >

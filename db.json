@@ -1,50 +1,19 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
-      "title": "asdasd",
+      "title": "zemeister",
       "author": "voyager",
-      "id": 2
-    },
-    {
-      "title": "a best",
-      "author": "voyager",
+      "time": 3,
       "id": 3
     },
     {
-      "title": "asdasd",
+      "title": "assssaaaaasasas",
       "author": "voyager",
+      "time": 3,
       "id": 4
-    },
-    {
-      "title": "asdasdas",
-      "author": "voyager",
-      "time": "45454",
-      "id": 5
-    },
-    {
-      "title": "asdasd",
-      "author": "voyager",
-      "time": 2,
-      "id": 6
-    },
-    {
-      "title": "ddsadas",
-      "author": "voyager",
-      "time": 2,
-      "id": 7
     }
   ],
   "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    },
     {
       "body": "foo",
       "id": 2
