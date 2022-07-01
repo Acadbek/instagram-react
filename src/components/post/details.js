@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Flex, PostContainer, SubTitle, Title } from '../../main-styles/style';
 import NumberFormat from 'react-number-format';
 import Input from './input';
@@ -6,18 +6,19 @@ import Input from './input';
 const Details = (props) => {
 	const [textLength, setTextLength] = useState(25)
 	const [statusBtn, setStatusBtn] = useState(true)
-	const [comments, setComments] = useState([
-		{
-			id: 1,
-			username: 'via maroqand',
-			comment: 'best of the best'
-		},
-	])
-
+	const [comments, setComments] = useState([])
 	const more = () => {
 		setTextLength(1000)
 		setStatusBtn(false)
 	}
+
+	useEffect(() => {
+		console.log(comments)
+		fetch('http://localhost:3000/comments')
+			.then(data => data.json())
+			.then(data => setComments(data))
+	}, [])
+
 	return (
 		<div>
 			<img
@@ -59,7 +60,7 @@ const Details = (props) => {
 				{comments.map((item) => (
 					<div key={item.id} className='flex items-center gap-2'>
 						<Title>{item.username}</Title>
-						<p className='font-[400] text-sm text-[#262626]'>{item.comment}</p>
+						<p className='font-[400] text-sm text-[#262626]'>{item.body}</p>
 					</div>
 				))}
 				<p className='text-[10px] text-[#8E8E8E] mt-2 font-extralight'>{props.data} HOURS AGO</p>
