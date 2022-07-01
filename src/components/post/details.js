@@ -5,6 +5,7 @@ import NumberFormat from 'react-number-format';
 import Input from './input';
 
 const Details = (props) => {
+	
 	const [textLength, setTextLength] = useState(25)
 	const [statusBtn, setStatusBtn] = useState(true)
 	const [comments, setComments] = useState([])
@@ -13,17 +14,16 @@ const Details = (props) => {
 		setStatusBtn(false)
 	}
 
-	const fetchData = async () => {
-		let array = []
-		let res = await axios.get('http://localhost:3000/posts')
-		.then(res => array.push(res))
-		console.log(array[0].data, '============')
-		setComments(array[0].data)
-	}
-
 	useEffect(() => {
+		const fetchData = async () => {
+			let array = []
+			await axios.get('http://localhost:3000/posts')
+				.then(res => array.push(res))
+			console.log(array[0].data, '============')
+			setComments(array[0].data)
+		}
 		fetchData()
-	}, [])
+	}, [setComments])
 
 	return (
 		<div>

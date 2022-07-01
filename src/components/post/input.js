@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Button } from '../../main-styles/style';
 
@@ -5,6 +6,7 @@ import { Button } from '../../main-styles/style';
 const Input = () => {
   const [color, setcolor] = useState(false)
   const [value, setValue] = useState('')
+  const [time, setTime] = useState('')
 
   const texarea = (e) => {
     if (e.target.value.length >= 1) {
@@ -15,19 +17,20 @@ const Input = () => {
     }
   }
 
-  const post = (e) => {
+  const getCurrentTime = () => {
+    let time = new Date().getHours()
+    setTime(time)
+  }
+
+  const post = async (e) => {
+    getCurrentTime()
     if (e.key === 'Enter') {
       console.log(e)
-      // fetch('http://localhost:3000/comments', {
-      //   method: 'POST',
-      //   body: JSON.stringify({
-      //     body: {value},
-      //     id: 1
-      //   }),
-      //   headers: {
-      //     "Content-type": "application/json; charset=UTF-8"
-      //   }
-      // })
+      await axios.post('http://localhost:3000/posts', {
+        title: value,
+        author: 'voyager',
+        time: time
+      })
     }
   }
 
