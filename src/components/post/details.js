@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Flex, PostContainer, SubTitle, Title } from '../../main-styles/style';
+import axios from 'axios';
+import { Flex, PostContainer, Title } from '../../main-styles/style';
 import NumberFormat from 'react-number-format';
 import Input from './input';
 
@@ -12,11 +13,16 @@ const Details = (props) => {
 		setStatusBtn(false)
 	}
 
+	const fetchData = async () => {
+		let array = []
+		let res = await axios.get('http://localhost:3000/posts')
+		.then(res => array.push(res))
+		console.log(array[0].data, '============')
+		setComments(array[0].data)
+	}
+
 	useEffect(() => {
-		console.log(comments)
-		fetch('http://localhost:3000/comments')
-			.then(data => data.json())
-			.then(data => setComments(data))
+		fetchData()
 	}, [])
 
 	return (
@@ -59,8 +65,8 @@ const Details = (props) => {
 				<p className='text-[14px] text-[#8E8E8E] mt-2'>View all {props.commentsCount} comments</p>
 				{comments.map((item) => (
 					<div key={item.id} className='flex items-center gap-2'>
-						<Title>{item.username}</Title>
-						<p className='font-[400] text-sm text-[#262626]'>{item.body}</p>
+						<Title>{item.author}</Title>
+						<p className='font-[400] text-sm text-[#262626]'>{item.title}</p>
 					</div>
 				))}
 				<p className='text-[10px] text-[#8E8E8E] mt-2 font-extralight'>{props.data} HOURS AGO</p>

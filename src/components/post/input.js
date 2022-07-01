@@ -4,18 +4,30 @@ import { Button } from '../../main-styles/style';
 
 const Input = () => {
   const [color, setcolor] = useState(false)
+  const [value, setValue] = useState('')
 
   const texarea = (e) => {
     if (e.target.value.length >= 1) {
       setcolor(true)
+      setValue(e.target.value)
     } else {
       setcolor(false)
     }
   }
 
   const post = (e) => {
-    if(e.key === 'Enter') {
+    if (e.key === 'Enter') {
       console.log(e)
+      // fetch('http://localhost:3000/comments', {
+      //   method: 'POST',
+      //   body: JSON.stringify({
+      //     body: {value},
+      //     id: 1
+      //   }),
+      //   headers: {
+      //     "Content-type": "application/json; charset=UTF-8"
+      //   }
+      // })
     }
   }
 
@@ -28,6 +40,7 @@ const Input = () => {
           </div>
           <textarea
             onChange={texarea}
+            value={value}
             className='w-full pt-5 outline-none bg-transparent text-[14px] resize-none'
             type='text'
             placeholder='Add a comment...'
