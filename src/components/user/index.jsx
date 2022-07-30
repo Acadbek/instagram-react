@@ -31,6 +31,7 @@ const User = (props) => {
         <div className="flex items-center gap-5">
           {props.isFavorite && (
             <svg
+              id="Favorited"
               aria-label="Favorited"
               fill="url(#favorite_icon_gradient)"
               height="16"

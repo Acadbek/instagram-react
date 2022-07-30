@@ -32,13 +32,19 @@ const Main = () => {
   };
 
   window.addEventListener("click", (e) => {
+    // console.log(e.path[1].id);
     if (e.target.innerText === "Remove from favorites") {
-      setIsFavorite(false);
+      setTimeout(() => {
+        setIsFavorite(false);
+      }, 400);
       setTitle("Add to favorites");
     }
     if (e.target.innerText === "Add to favorites") {
-      setIsFavorite(true);
+      setTimeout(() => {
+        setIsFavorite(true);
+      }, 400);
       setTitle("Remove from favorites");
+      // e.path[1].id.style.display = "none";
     }
   });
 
