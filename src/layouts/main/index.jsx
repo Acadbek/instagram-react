@@ -9,6 +9,7 @@ import "./style.css";
 const Main = () => {
   const [statusModal, setStatusModal] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
+  const [title, setTitle] = useState("Add to favorites");
 
   const bodyOverFlowStatus = (x) => {
     document.body.style.overflow = x;
@@ -24,13 +25,22 @@ const Main = () => {
     bodyOverFlowStatus("visible");
   };
 
-  const addFavorite = () => {
-    setTimeout(() => {
-      setIsFavorite(true);
-    }, 500);
+  const addFavorite = (e) => {
     setStatusModal(false);
     bodyOverFlowStatus("visible");
+    setTitle("Remove from favorites");
   };
+
+  window.addEventListener("click", (e) => {
+    if (e.target.innerText === "Remove from favorites") {
+      setIsFavorite(false);
+      setTitle("Add to favorites");
+    }
+    if (e.target.innerText === "Add to favorites") {
+      setIsFavorite(true);
+      setTitle("Remove from favorites");
+    }
+  });
 
   window.addEventListener("click", (e) => {
     if (e.target.id === "close") {
@@ -41,7 +51,9 @@ const Main = () => {
 
   return (
     <Container>
-      {statusModal && <Modal addFavorite={addFavorite} cancel={cancel} />}
+      {statusModal && (
+        <Modal title={title} addFavorite={addFavorite} cancel={cancel} />
+      )}
       <div className="main grid grid-cols-12 gap-2 relative">
         <div className="col-span-1"></div>
         <div className="col-span-6 ">

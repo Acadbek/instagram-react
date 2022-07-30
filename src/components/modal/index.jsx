@@ -13,8 +13,11 @@ const Modal = (props) => {
         <button className="active:bg-[#0000001a]  !w-full text-red-700 py-3 border-b-[1px] border-solid border-grey-300">
           Unfollow
         </button>
-        <button onClick={props.addFavorite} className="active:bg-[#0000001a]  !w-full py-3 border-b-[1px] border-solid border-grey-300">
-          Add to favorites
+        <button
+          onClick={props.addFavorite}
+          className="active:bg-[#0000001a]  !w-full py-3 border-b-[1px] border-solid border-grey-300"
+        >
+          {props.title}
         </button>
         <button className="active:bg-[#0000001a]  !w-full py-3 border-b-[1px] border-solid border-grey-300">
           Go to post
