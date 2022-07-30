@@ -14,7 +14,7 @@ const User = (props) => {
               colorForLocation={true}
               fontSizeForLocation={true}
               fontWeightForLocation={true}>
-              {props.location}
+              {props?.location}
             </SubTitle> :
             <SubTitle>
               {props?.subTitle}
@@ -23,7 +23,7 @@ const User = (props) => {
       </div>
       {props.isActive ?
         <Button className='text-[#0995F6]'>{props?.btnTitle}</Button> :
-        <Doots open={props.open}/>
+        <Doots open={props?.open} />
       }
     </Flex>
   );

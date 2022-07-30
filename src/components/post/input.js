@@ -8,7 +8,7 @@ const Input = () => {
   const [value, setValue] = useState('')
   const [time, setTime] = useState('')
 
-  const texarea = (e) => {
+  const texarea = (e) => {  
     if (e.target.value.length >= 1) {
       setcolor(true)
       setValue(e.target.value)
@@ -26,7 +26,7 @@ const Input = () => {
     getCurrentTime()
     if (e.key === 'Enter') {
       console.log(value)
-      await axios.post('http://localhost:3000/posts', {
+      await axios.post('http://localhost:3000/data', {
         title: value,
         author: 'voyager',
         time: time
