@@ -6,18 +6,6 @@ import Details from "./details";
 
 const Post = (props) => {
 
-  // useEffect(() => {
-  //   // getData()
-  // }, []);
-
-  // // const getData = async () => {
-  // //   await axios.get("https://jsonplaceholder.typicode.com/photos", {
-  // //     params: {
-  // //       _limit: 20,
-  // //     },
-  // //   });
-  // // };
-
   const open = () => {
     console.log('kksmlfkmsmdflkm')
   }
@@ -26,6 +14,7 @@ const Post = (props) => {
     <Card>
       <PostContainer>
         <User
+          isFavorite={props.isFavorite}
           open={props.open}
           name="hakimov"
           location="Uzbekistan"

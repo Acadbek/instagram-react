@@ -8,33 +8,45 @@ import "./style.css";
 
 const Main = () => {
   const [statusModal, setStatusModal] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const bodyOverFlowStatus = (x) => {
+    document.body.style.overflow = x;
+  };
 
   const openModal = () => {
     setStatusModal(!statusModal);
-    document.body.style.overflow = "hidden";
+    bodyOverFlowStatus("hidden");
   };
 
   const cancel = () => {
     setStatusModal(!statusModal);
-    document.body.style.overflow = "visible";
+    bodyOverFlowStatus("visible");
   };
 
+  const addFavorite = () => {
+    setTimeout(() => {
+      setIsFavorite(true);
+    }, 500);
+    setStatusModal(false);
+    bodyOverFlowStatus("visible");
+  };
 
   window.addEventListener("click", (e) => {
     if (e.target.id === "close") {
       setStatusModal(false);
-      document.body.style.overflow = "visible";
+      bodyOverFlowStatus("visible");
     }
   });
 
   return (
     <Container>
-      {statusModal && <Modal cancel={cancel}/>}
+      {statusModal && <Modal addFavorite={addFavorite} cancel={cancel} />}
       <div className="main grid grid-cols-12 gap-2 relative">
         <div className="col-span-1"></div>
         <div className="col-span-6 ">
           <Stories />
-          <Post open={openModal} />
+          <Post isFavorite={isFavorite} open={openModal} />
         </div>
         <div className="col-span-4 ml-5">
           <Sidebar />
