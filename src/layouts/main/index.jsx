@@ -32,7 +32,6 @@ const Main = () => {
   };
 
   window.addEventListener("click", (e) => {
-    // console.log(e.path[1].id);
     if (e.target.innerText === "Remove from favorites") {
       setTimeout(() => {
         setIsFavorite(false);
@@ -44,7 +43,6 @@ const Main = () => {
         setIsFavorite(true);
       }, 400);
       setTitle("Remove from favorites");
-      // e.path[1].id.style.display = "none";
     }
   });
 
@@ -62,8 +60,10 @@ const Main = () => {
       )}
       <div className="main grid grid-cols-12 gap-2 relative">
         <div className="col-span-1"></div>
-        <div className="col-span-6 ">
-          <Stories />
+        <div className="col-span-6">
+          <div className="mb-4">
+            <Stories />
+          </div>
           <Post isFavorite={isFavorite} open={openModal} />
         </div>
         <div className="col-span-4 ml-5">

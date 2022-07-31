@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import User from "../user";
-import axios from "axios";
 import { Card, PostContainer } from "../../main-styles/style";
 import Details from "./details";
 
