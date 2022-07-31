@@ -37,7 +37,7 @@ const Details = (props) => {
       <img
         className="w-full h-full object-cover"
         alt="photos"
-        src="https://picsum.photos/470/470"
+        src={props.image}
         width="450px"
         height="450px"
       />
