@@ -3,8 +3,6 @@ import Modal from "../../components/modal";
 import Post from "../../components/post";
 import Sidebar from "../../components/sidebar";
 import Stories from "../../components/stories";
-import img from "../../assets/logo.png";
-import img2 from "../../assets/user.jpeg";
 import { Container } from "../../main-styles/style";
 import "./style.css";
 
@@ -21,6 +19,7 @@ const Main = () => {
         "⚒️.HTML input Types If you found it useful! 🤝 Follow me @sourav_code 📢 Hey, I am a Web Developer From India, Helping people learn web development. I Twee HTML CSS JavaScript, React, & More Tips & Web Development Tag________ #html5 #jsvascript #puthon #javadevelopers #html5website #cssanimations #mysqlworkbench #javascript #pythondeveloper #programinglife #htmltips #csstips #developer #reactjsdeveloper #angular #veujs #programmingboy #phpdeveloper #coding #websitedesigner #programming #programmingtime",
       commentCount: 4,
       likesCount: 133,
+			location: 'Uzbekistan',
       image:
         "https://i.picsum.photos/id/103/2592/1936.jpg?hmac=aC1FT3vX9bCVMIT-KXjHLhP6vImAcsyGCH49vVkAjPQ",
     },
@@ -32,6 +31,7 @@ const Main = () => {
         "⚒️.HTML input Types If you found it useful! 🤝 Follow me @sourav_code 📢 Hey, I am a Web Developer From India, Helping people learn web development. I Twee HTML CSS JavaScript, React, & More Tips & Web Development Tag________ #html5 #jsvascript #puthon #javadevelopers #html5website #cssanimations #mysqlworkbench #javascript #pythondeveloper #programinglife #htmltips #csstips #developer #reactjsdeveloper #angular #veujs #programmingboy #phpdeveloper #coding #websitedesigner #programming #programmingtime",
       commentCount: 4,
       likesCount: 11215,
+			location: 'Turkiye',
       isFavorite: isFavorite,
       image:
         "https://i.picsum.photos/id/1029/4887/2759.jpg?hmac=uMSExsgG8_PWwP9he9Y0LQ4bFDLlij7voa9lU9KMXDE",
@@ -43,6 +43,7 @@ const Main = () => {
       posts:
         "⚒️.HTML input Types If you found it useful! 🤝 Follow me @sourav_code 📢 Hey, I am a Web Developer From India, Helping people learn web development. I Twee HTML CSS JavaScript, React, & More Tips & Web Development Tag________ #html5 #jsvascript #puthon #javadevelopers #html5website #cssanimations #mysqlworkbench #javascript #pythondeveloper #programinglife #htmltips #csstips #developer #reactjsdeveloper #angular #veujs #programmingboy #phpdeveloper #coding #websitedesigner #programming #programmingtime",
       commentCount: 8545,
+			location: 'Istanbul',
       likesCount: 1121231,
       isFavorite: isFavorite,
       image:
